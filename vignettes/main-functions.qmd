@@ -1,0 +1,42 @@
+---
+title: "main-functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{main-functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(measlesanalyze)
+```
+
+```{r}
+measles_concentration(df = cases_year, start_year = 2013, end_year = 2023)
+
+# This should make a table showing the concentration of measles cases by year across countries. It also highlights what share of global measles cases and country is responsible for. In this cases, we are looking at global measles cases ranging between 2013 and 2023.
+```
+
+```{r}
+plot_measles_heatmap(df = cases_year, start_year = 2013, end_year = 2023)
+
+# This should make a heatmap showing the top 15 countries with the highest concentration of measles cases over the selected study period (from the start year to the end year), which in this case is from 2013 to 2023.
+```
+
+```{r}
+compare_measles_covid(m_df = cases_year, c_df = covid_cleaned_df, 
+                      year1 = 2020, year2 = 2022)
+
+# This should make a table comparing measles and Covid-19 cases from the top 10 countries with the highest number of Covid-19 cases in the two selected years, which in this case is 2020 and 2022.
+```
+
+
+
+
