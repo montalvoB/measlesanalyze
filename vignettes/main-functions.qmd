@@ -38,5 +38,3 @@ compare_measles_covid(m_df = cases_year, c_df = covid_cleaned_df,
 ```
 
 
-
-
