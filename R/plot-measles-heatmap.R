@@ -12,6 +12,13 @@
 #'
 #' @export
 plot_measles_heatmap <- function(start_year, end_year) {
+  if(!is.numeric(start_year)) {
+    stop("Please enter a valid year.")
+  }
+  if(!is.numeric(end_year)) {
+    stop("Please enter a valid year.")
+  }
+
   top_countries <- load_data_year() |>
     filter(between(year, start_year, end_year)) |>
     group_by(country) |>

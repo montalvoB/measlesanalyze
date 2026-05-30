@@ -12,6 +12,13 @@
 #'
 #' @export
 measles_concentration <- function(start_year, end_year) {
+  if(!is.numeric(start_year)) {
+    stop("Please enter a valid year.")
+  }
+  if(!is.numeric(end_year)) {
+    stop("Please enter a valid year.")
+  }
+
   key_years <- load_data_year() |>
     filter(between(year, start_year, end_year)) |>
     distinct(year) |>
@@ -59,6 +66,10 @@ measles_concentration <- function(start_year, end_year) {
 #'
 #' @export
 calc_concentration <- function(year_in) {
+  if(!is.numeric(year_in)) {
+    stop("Please enter a valid year.")
+  }
+
   load_data_year() |>
     filter(year == year_in) |>
     mutate(
@@ -87,6 +98,10 @@ calc_concentration <- function(year_in) {
 #'
 #' @export
 summarize_concentration <- function(yr) {
+  if(!is.numeric(yr)) {
+    stop("Please enter a valid year.")
+  }
+
   calc_concentration(yr) |>
     summarize(
       year = yr,
