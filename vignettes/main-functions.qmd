@@ -31,8 +31,7 @@ plot_measles_heatmap(start_year = 2013, end_year = 2023)
 ```
 
 ```{r}
-compare_measles_covid(m_df = cases_year, c_df = covid_cleaned_df, 
-                      year1 = 2020, year2 = 2022)
+measles_vs_covid(year1 = 2020, year2 = 2022)
 
 # This should make a table comparing measles and Covid-19 cases from the top 10 countries with the highest number of Covid-19 cases in the two selected years, which in this case is 2020 and 2022.
 ```

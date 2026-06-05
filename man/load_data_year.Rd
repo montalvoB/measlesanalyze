@@ -7,7 +7,7 @@
 load_data_year()
 }
 \value{
-yearly measles data sets
+yearly measles data set
 }
 \description{
 Loads in original yearly measles data set

@@ -7,7 +7,7 @@
 load_data_month()
 }
 \value{
-monthly measles data sets
+monthly measles data set
 }
 \description{
 Loads in original monthly measles data set
