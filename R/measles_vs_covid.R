@@ -71,7 +71,7 @@ measles_vs_covid <- function(year1, year2) {
 #'
 #' @return a wrangled data set
 #'
-#' @importFrom dplyr filter select starts_with rowwise mutate ungroup arrange desc inner_join slice_head case_when
+#' @importFrom dplyr filter select starts_with rowwise mutate ungroup arrange desc inner_join slice_head case_when c_across
 #' @importFrom glue glue
 #' @importFrom forcats fct_reorder
 #' @importFrom tidyr pivot_longer
