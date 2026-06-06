@@ -40,5 +40,19 @@ load_data_covid <- function(){
 
 }
 
+#' Loads in country GDP data set
+#'
+#' @return country GDP data set
+#'
+#' @importFrom utils read.csv
+#'
+#' @export
+load_data_gdp <- function(){
+
+  path <- system.file("extdata", "country_gdp.csv", package = "measlesanalyze")
+  read.csv(path)
+
+}
+
 
 

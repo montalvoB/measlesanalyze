@@ -42,4 +42,10 @@ measles_covid_barplot(year = 2020)
 # This should make a horizontal bar plot showing the difference in measles and Covid-19 cases in the top 10 countries during a specified year. In this case, the plot will show the comparison of the two diseases in 2020.
 ```
 
+```{r}
+gdp_ttest(year_in = 2019)
+
+# This should make a table showing the results of a two sample t-test; it compares the mean GDP growth of countries between high and low measles concentrations in a specified year. In this case, the table will show the results when analyzing the year 2019.
+```
+
 
