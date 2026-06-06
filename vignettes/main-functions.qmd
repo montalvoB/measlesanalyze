@@ -36,4 +36,10 @@ measles_vs_covid(year1 = 2020, year2 = 2022)
 # This should make a table comparing measles and Covid-19 cases from the top 10 countries with the highest number of Covid-19 cases in the two selected years, which in this case is 2020 and 2022.
 ```
 
+```{r}
+measles_covid_barplot(year = 2020)
+
+# This should make a horizontal bar plot showing the difference in measles and Covid-19 cases in the top 10 countries during a specified year. In this case, the plot will show the comparison of the two diseases in 2020.
+```
+
 
