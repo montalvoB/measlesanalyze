@@ -13,6 +13,9 @@ measles_covid_barplot <- function(year) {
   if(!is.numeric(year)) {
     stop("Please enter a valid year.")
   }
+  if (year < 2020 || year > 2023) {
+    stop("`year` must be between 2020 and 2023.")
+  }
 
   measles_covid_compare(year) |>
     ggplot(aes(y = country, x = cases, fill = disease)) +

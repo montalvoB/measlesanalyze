@@ -4,12 +4,14 @@
 \alias{plot_measles_heatmap}
 \title{Creates a heatmap plot of countries with the highest concentration of cases}
 \usage{
-plot_measles_heatmap(start_year, end_year)
+plot_measles_heatmap(start_year = 2012, end_year = 2025)
 }
 \arguments{
-\item{start_year}{starting year for analysis}
+\item{start_year}{starting year for analysis
+Defaults to the earliest year available in the dataset (2012).}
 
-\item{end_year}{ending year for analysis}
+\item{end_year}{ending year for analysis
+Defaults to the latest year available in the dataset (2025).}
 }
 \value{
 a styled heatmap including 15 countries

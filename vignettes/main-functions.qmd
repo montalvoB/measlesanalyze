@@ -24,37 +24,37 @@ load_data_year()
 load_data_covid()
 load_data_gdp()
 
-# These lines of code should read in their respective data sets. There should be four sets: montly measles data, yearly measles data, Covid-19 data, and GDP growth data.
+# These lines of code should read in their respective data sets. There should be four sets: monthly measles data, yearly measles data, Covid-19 data, and GDP growth data.
 ```
 
 ```{r}
-calc_concentration(year_in = 2013)
+calc_concentration(year_in = 2012)
 
-# This should wrangle the yearly measles data set in order to reflect the concentration of measles cases in each country during the specified year. In this case, the data set should end up reflecting the concentration of all countries in the year 2013.
+# This should wrangle the yearly measles data set in order to reflect the concentration of measles cases in each country during the specified year. In this case, the data set should end up reflecting the concentration of all countries in the year 2012.
 ```
 
 ```{r}
-summarize_concentration(yr = 2013)
+summarize_concentration(yr = 2012)
 
-# This should further wrangle the yearly measles data set output from calc_concentration() to emphasize more specific countries. In this case, the data set should up end reflecting the concentration of all countries in the year 2013 while identifying the top country that has the most impact.
+# This should further wrangle the yearly measles data set output from calc_concentration() to emphasize more specific countries. In this case, the data set should up end reflecting the concentration of all countries in the year 2012 while identifying the top country that has the most impact.
 ```
 
 ```{r}
-measles_concentration(start_year = 2013, end_year = 2023)
+measles_concentration(start_year = 2012, end_year = 2025)
 
-# This should make a table showing the concentration of measles cases by year across countries. It also highlights what share of global measles cases and country is responsible for. In this cases, we are looking at global measles cases ranging between 2013 and 2023.
+# This should make a table showing the concentration of measles cases by year across countries. It also highlights what share of global measles cases and country is responsible for. In this cases, we are looking at global measles cases ranging between 2012 and 2025.
 ```
 
 ```{r}
-plot_measles_heatmap(start_year = 2013, end_year = 2023)
+plot_measles_heatmap(start_year = 2012, end_year = 2025)
 
-# This should make a heatmap showing the top 15 countries with the highest concentration of measles cases over the selected study period (from the start year to the end year), which in this case is from 2013 to 2023.
+# This should make a heatmap showing the top 15 countries with the highest concentration of measles cases over the selected study period (from the start year to the end year), which in this case is from 2012 to 2025.
 ```
 
 ```{r}
 measles_covid_compare(year1 = 2020)
 
-# This should join and wrangle the yearly mealses and Covid-19 data sets in order to match years/countries and see the comparison. In this case, the data set should end up reflecting the comparison of measles and Covid-19 cases in the year 2020.
+# This should join and wrangle the yearly measles and Covid-19 data sets in order to match years/countries and see the comparison. In this case, the data set should end up reflecting the comparison of measles and Covid-19 cases in the year 2020.
 ```
 
 ```{r}

@@ -65,3 +65,54 @@ test_that("measles_concentration errors on non-numeric input", {
   expect_error(measles_concentration("2019", 2020), "Please enter a valid year.")
   expect_error(measles_concentration(2019, "2020"), "Please enter a valid year.")
 })
+
+test_that("measles_concentration works with default arguments", {
+  result <- measles_concentration()
+  expect_s3_class(result, "gt_tbl")
+})
+
+test_that("measles_concentration errors when start_year is out of range", {
+  expect_error(measles_concentration(2011, 2020), "`start_year` must be greater than 2011.")
+})
+
+test_that("measles_concentration errors when end_year is out of range", {
+  expect_error(measles_concentration(2012, 2026), "`end_year` must be less than 2026.")
+})
+
+test_that("measles_concentration errors when start_year is after end_year", {
+  expect_error(measles_concentration(2020, 2015), "`start_year` must be less than `end_year`")
+})
+
+# calc_concentration
+test_that("calc_concentration errors on out-of-range year", {
+  expect_error(calc_concentration(2011), "`year_in`must be between 2012 and 2025.")
+  expect_error(calc_concentration(2026), "`year_in`must be between 2012 and 2025.")
+})
+
+test_that("calc_concentration works at boundary years", {
+  expect_s3_class(calc_concentration(2012), "data.frame")
+  expect_s3_class(calc_concentration(2025), "data.frame")
+})
+
+test_that("calc_concentration share column sums to <= 1", {
+  result <- calc_concentration(2019)
+  # Negligible countries are filtered, so sum of shares won't hit 1, but must not exceed it
+  expect_lte(sum(result$share), 1)
+})
+
+# summarize_concentration
+test_that("summarize_concentration errors on out-of-range year", {
+  expect_error(summarize_concentration(2011), "Enter a year from 2012 to 2025.")
+  expect_error(summarize_concentration(2026), "Enter a year from 2012 to 2025.")
+})
+
+test_that("summarize_concentration works at boundary years", {
+  expect_s3_class(summarize_concentration(2012), "data.frame")
+  expect_s3_class(summarize_concentration(2025), "data.frame")
+})
+
+test_that("summarize_concentration top1_share is between 0 and 1", {
+  result <- summarize_concentration(2019)
+  expect_gte(result$top1_share, 0)
+  expect_lte(result$top1_share, 1)
+})

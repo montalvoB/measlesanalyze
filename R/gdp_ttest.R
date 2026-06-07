@@ -13,7 +13,9 @@ gdp_ttest <-function(year_in) {
   if(!is.numeric(year_in)) {
     stop("Please enter a valid year.")
   }
-
+  if (year_in < 2012 || year_in > 2025) {
+    stop("`year_in`must be between 2012 and 2025.")
+  }
   country_gdp <- load_data_gdp()
   cases_year <- load_data_year()
 

@@ -12,11 +12,18 @@
 #'
 #' @export
 measles_vs_covid <- function(year1, year2) {
-  if(!is.numeric(year1)) {
+  if(!is.numeric(year1) || !is.numeric(year2)) {
     stop("Please enter a valid year.")
   }
-  if(!is.numeric(year2)) {
-    stop("Please enter a valid year.")
+  if (year1 < 2020 || year1 > 2023) {
+  stop("`year1` must be between 2020 and 2023.")
+  }
+
+  if (year2 < 2020 || year2 > 2023) {
+    stop("`year2` must be between 2020 and 2023.")
+  }
+  if (year1 == year2) {
+    stop("`year1` and `year2` must be different years.")
   }
 
   compare1 <- measles_covid_compare(year1) |>
@@ -82,6 +89,11 @@ measles_covid_compare <- function(year1) {
     stop("Please enter a valid year.")
   }
 
+  if (year1 < 2020 || year1 > 2023) {
+    stop("`year_in`must be between 2020 and 2023.")
+  }
+
+
   measles_year <- load_data_year() |>
     filter(year == year1) |>
     select(country, measles_total_year = measles_total)
@@ -107,14 +119,3 @@ measles_covid_compare <- function(year1) {
 
   return(comparison_year)
 }
-
-
-
-
-
-
-
-
-
-
-

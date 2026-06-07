@@ -1,7 +1,9 @@
 #' Creates a heatmap plot of countries with the highest concentration of cases
 #'
 #' @param start_year starting year for analysis
+#'  Defaults to the earliest year available in the dataset (2012).
 #' @param end_year ending year for analysis
+#'  Defaults to the latest year available in the dataset (2025).
 #'
 #' @return a styled heatmap including 15 countries
 #'
@@ -11,12 +13,22 @@
 #' @importFrom glue glue
 #'
 #' @export
-plot_measles_heatmap <- function(start_year, end_year) {
+plot_measles_heatmap <- function(start_year=2012, end_year=2025) {
   if(!is.numeric(start_year)) {
     stop("Please enter a valid year.")
   }
   if(!is.numeric(end_year)) {
     stop("Please enter a valid year.")
+  }
+
+  if (start_year < 2012 ) {
+    stop("`start_year` must be greater than 2011.")
+  }
+  if (end_year > 2025) {
+    stop("`end_ear` must be less than 2026.")
+  }
+  if (start_year > end_year) {
+    stop("`start_year` must be less than `end_year`")
   }
 
   top_countries <- load_data_year() |>

@@ -1,7 +1,10 @@
 #' Creates a table a table showing the concentration of measles cases
 #'
 #' @param start_year starting year for analysis
+#'  Defaults to the earliest year available in the dataset (2012).
+#'
 #' @param end_year ending year for analysis
+#'  Defaults to the latest year available in the dataset (2025).
 #'
 #' @return a formatted table with 6 columns of information
 #'
@@ -11,12 +14,23 @@
 #' @importFrom gt gt tab_header tab_spanner cols_label fmt_percent fmt_number tab_style cells_column_labels cell_text
 #'
 #' @export
-measles_concentration <- function(start_year, end_year) {
+measles_concentration <- function(start_year=2012, end_year=2025) {
   if(!is.numeric(start_year)) {
     stop("Please enter a valid year.")
   }
   if(!is.numeric(end_year)) {
     stop("Please enter a valid year.")
+  }
+
+  if (start_year < 2012 ) {
+    stop("`start_year` must be greater than 2011.")
+  }
+  if (end_year > 2025) {
+    stop("`end_year` must be less than 2026.")
+  }
+
+  if (start_year > end_year) {
+    stop("`start_year` must be less than `end_year`")
   }
 
   key_years <- load_data_year() |>
@@ -70,6 +84,10 @@ calc_concentration <- function(year_in) {
     stop("Please enter a valid year.")
   }
 
+  if (year_in < 2012 || year_in > 2025) {
+    stop("`year_in`must be between 2012 and 2025.")
+  }
+
   load_data_year() |>
     filter(year == year_in) |>
     mutate(
@@ -100,6 +118,10 @@ calc_concentration <- function(year_in) {
 summarize_concentration <- function(yr) {
   if(!is.numeric(yr)) {
     stop("Please enter a valid year.")
+  }
+
+  if (yr < 2012 || yr > 2025) {
+    stop("Enter a year from 2012 to 2025.")
   }
 
   calc_concentration(yr) |>

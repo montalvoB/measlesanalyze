@@ -4,12 +4,14 @@
 \alias{measles_concentration}
 \title{Creates a table a table showing the concentration of measles cases}
 \usage{
-measles_concentration(start_year, end_year)
+measles_concentration(start_year = 2012, end_year = 2025)
 }
 \arguments{
-\item{start_year}{starting year for analysis}
+\item{start_year}{starting year for analysis
+Defaults to the earliest year available in the dataset (2012).}
 
-\item{end_year}{ending year for analysis}
+\item{end_year}{ending year for analysis
+Defaults to the latest year available in the dataset (2025).}
 }
 \value{
 a formatted table with 6 columns of information
